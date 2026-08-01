@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/sentrial-openapi.yml
+docs: https://www.sentrial.com/docs/api/auth
+summary:
+  types:
+  - http
+  key_format: sentrial_live_xxxxxxxxxxxxx
+  header: 'Authorization: Bearer <api_key>'
+  key_management: Organization Settings -> API Keys (keys shown once)
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: API key passed as a Bearer token in the Authorization header. Keys follow the
+    format sentrial_live_xxxxxxxxxxxxx and are created in organization Settings -> API Keys.
+  sources:
+  - openapi/sentrial-openapi.yml
+errors:
+- status: 401
+  error: Unauthorized
+  message: Invalid or missing API key
+- status: 403
+  error: Forbidden
+  message: API key does not have access to this resource
+best_practices:
+- Store API keys in environment variables (SENTRIAL_API_KEY), never in code.
+- Rotate keys regularly and revoke compromised keys immediately in Settings.
+- Use separate keys per environment (dev, staging, production).

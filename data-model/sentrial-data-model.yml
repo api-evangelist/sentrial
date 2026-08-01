@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sentrial-openapi.yml
+entities:
+- name: Session
+  id_prefix: sess_
+  description: A complete record of a single agent interaction.
+  key_fields: [id, name, agentName, userId, status, success, estimatedCost, durationMs, createdAt, completedAt]
+- name: Event
+  id_prefix: evt_
+  description: A single occurrence within a session (tool call, LLM decision, state change, or error).
+  key_fields: [id, sessionId, eventType, toolName, toolInput, toolOutput, reasoning, confidence, estimatedCost, createdAt]
+relationships:
+- from: Session
+  to: Event
+  type: has_many
+  via: sessionId
+- from: Event
+  to: Session
+  type: belongs_to
+  via: sessionId

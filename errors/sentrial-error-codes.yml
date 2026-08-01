@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.sentrial.com/docs/api/events, https://www.sentrial.com/docs/api/sessions, https://www.sentrial.com/docs/api/auth
+format: custom-json
+envelope:
+  fields:
+  - {name: error, type: string, description: Short error code/title.}
+  - {name: message, type: string, description: Human-readable explanation.}
+  example: '{ "error": "Unauthorized", "message": "Invalid or missing API key" }'
+errors:
+- status: 400
+  title: Bad Request
+  description: Missing required fields or invalid event type / invalid data.
+  source_operations: [createSession, updateSession, createEvent]
+- status: 401
+  title: Unauthorized
+  description: Invalid or missing API key.
+  source_operations: [createSession, updateSession, createEvent]
+- status: 403
+  title: Forbidden
+  description: API key does not have permission for this action / access to this resource.
+  source_operations: [createSession]
+- status: 404
+  title: Not Found
+  description: Session ID not found.
+  source_operations: [updateSession, createEvent]
+- status: 500
+  title: Internal Server Error
+  description: Server error, please retry.
+  source_operations: [createSession, updateSession, createEvent]

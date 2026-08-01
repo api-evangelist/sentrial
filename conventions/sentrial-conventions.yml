@@ -1,0 +1,37 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.sentrial.com/docs/api/auth, https://www.sentrial.com/docs/api/sessions, https://www.sentrial.com/docs/api/events
+base_url: https://api.sentrial.com
+authentication:
+  style: bearer-token
+  header: Authorization
+  scheme: Bearer
+  key_format: sentrial_live_xxxxxxxxxxxxx
+  ref: authentication/sentrial-authentication.yml
+identifiers:
+  scheme: prefixed-opaque
+  prefixes:
+  - {entity: Session, prefix: sess_, example: sess_abc123def456}
+  - {entity: Event, prefix: evt_, example: evt_xyz789}
+content_type: application/json
+error_envelope:
+  shape: '{ "error": <string>, "message": <string> }'
+  format: custom-json
+  note: Not RFC 9457 problem+json; a flat error/message object.
+  ref: errors/sentrial-error-codes.yml
+idempotency:
+  supported: false
+  note: No idempotency-key header or parameter is documented for the SDK ingestion API as of this capture.
+pagination:
+  documented: false
+  note: >-
+    The REST ingestion API documents single-resource create/update only. List/filter
+    surfaces (sessions, events, signals) are exposed through the CLI (--last, --status,
+    --type filters) rather than documented REST pagination parameters.
+versioning:
+  scheme: path-prefixed
+  path: /api/sdk
+  explicit_version: false
+ingestion_options:
+- {mode: native-sdk, note: Sentrial Python/TypeScript SDKs auto-track sessions and events.}
+- {mode: opentelemetry, note: Send OpenTelemetry traces to Sentrial via existing OTel instrumentation or collector.}

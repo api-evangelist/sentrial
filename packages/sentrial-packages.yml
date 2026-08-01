@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.sentrial.com/docs/installation
+packages:
+- language: typescript
+  registry: npm
+  name: "@sentrial/sdk"
+  url: https://www.npmjs.com/package/@sentrial/sdk
+  install: npm install @sentrial/sdk
+  version: 0.4.4
+  license: MIT
+  official: true
+  notes: TypeScript/Node.js SDK for AI agent observability; also ships the `sentrial` CLI binary.
+- language: python
+  registry: pypi
+  name: sentrial
+  url: https://pypi.org/project/sentrial/
+  install: pip install sentrial
+  version: 0.6.0
+  license: MIT
+  official: true
+  notes: Python SDK; `pip install sentrial[all]` pulls optional framework integrations.

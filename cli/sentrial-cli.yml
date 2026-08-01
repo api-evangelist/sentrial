@@ -1,0 +1,50 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.sentrial.com/docs/cli
+name: sentrial
+summary: >-
+  The Sentrial CLI ships with @sentrial/sdk as the `sentrial` binary. Designed for
+  humans and agents alike: local setup, scriptable inspection, and CI checks, all
+  using API-key auth instead of browser login.
+install:
+- method: script
+  command: curl -fsSL https://raw.githubusercontent.com/sentrialdev/Sentrial/main/scripts/install.sh | bash
+- method: npm
+  command: npm install @sentrial/sdk
+authentication:
+  env: SENTRIAL_API_KEY
+  login: sentrial login --api-key sentrial_live_xxx
+  resolution_order:
+  - --api-key flag
+  - SENTRIAL_API_KEY env var
+  - ~/.sentrial/config.json
+  api_url_override: --api-url or SENTRIAL_API_URL (for self-hosted or local API targets)
+command_groups:
+- group: setup
+  commands:
+  - sentrial install        # install SDK + scaffold example integration files
+  - sentrial install --dry-run
+  - sentrial init           # scaffold examples only
+  - sentrial init --language python
+  - sentrial init --language typescript
+- group: sessions
+  commands:
+  - sentrial sessions list
+  - sentrial sessions list --last 7d --status failed --agent support
+  - sentrial sessions list --json
+  - sentrial sessions get <session-id>
+  - sentrial sessions get <session-id> --no-events
+- group: events
+  commands:
+  - sentrial events list <session-id>
+  - sentrial events list <session-id> --type tool_call
+  - sentrial events list <session-id> --json
+- group: signals-and-diagnosis
+  commands:
+  - sentrial signals list --last 30d
+  - sentrial signals list --type negative --source heuristic
+  - sentrial diagnose <session-id>
+- group: ci-gates
+  commands:
+  - sentrial evaluate <experiment-id> --min-score 80 --max-regression 5
+  - sentrial evaluate <experiment-id> --min-score 80 --json

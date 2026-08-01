@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sentrial-openapi.yml, https://www.sentrial.com/docs/concepts/ingestion-options
+standards:
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme; auth is API-key bearer token.
+- id: bearer-token-auth
+  conforms: true
+  evidence: Authorization Bearer sentrial_live_ API keys documented.
+- id: opentelemetry
+  conforms: true
+  evidence: Documented OpenTelemetry trace ingestion as an alternative to the native SDK.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error responses use a custom { error, message } envelope, not application/problem+json.
+- id: json-api
+  conforms: false
+- id: rest-json
+  conforms: true
+  evidence: JSON request/response over HTTPS REST endpoints under /api/sdk.

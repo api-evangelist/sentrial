@@ -1,0 +1,17 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/sentrial-openapi.yml, https://www.sentrial.com/docs
+versioning:
+  scheme: path-prefixed
+  path: /api/sdk
+  explicit_version: false
+  note: No dated public changelog or deprecation policy was found at capture time.
+deprecation:
+  policy_url: null
+  sunset_header: null
+status_page:
+  url: null
+  note: No dedicated public status page (e.g. status.sentrial.com) was confirmed reachable at capture time.
+sla:
+  url: null
+deprecated_operations: []

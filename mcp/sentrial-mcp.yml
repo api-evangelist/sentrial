@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/sentrial-openapi.yml
+note: >-
+  No official hosted/remote Sentrial MCP server was found in the docs, npm
+  (@modelcontextprotocol), or public MCP registries as of this capture. The tool
+  list below is a candidate derived one-to-one from the documented REST operations.
+server:
+  name: sentrial
+  transport: http
+tools:
+- name: create_session
+  description: Create a new agent session.
+  source_operation: openapi/sentrial-openapi.yml#createSession
+- name: update_session
+  description: Update a session's status and final metrics.
+  source_operation: openapi/sentrial-openapi.yml#updateSession
+- name: create_event
+  description: Record an event within an agent session.
+  source_operation: openapi/sentrial-openapi.yml#createEvent

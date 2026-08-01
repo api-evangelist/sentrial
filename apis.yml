@@ -1,22 +1,135 @@
 aid: sentrial
 name: Sentrial
-description: Sentrial is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Sentrial is an observability platform for AI agents, backed by Y Combinator. It tracks every
+  agent session, tool call, and LLM interaction, then automatically detects issues, diagnoses root
+  causes, and helps teams fix them in code. Developers instrument agents with the Sentrial Python or
+  TypeScript SDK (one-line integrations for LangChain, CrewAI, AutoGen, Mastra, the Vercel AI SDK, and
+  the Claude Agent SDK), by sending OpenTelemetry traces, or by calling the REST ingestion API
+  (https://api.sentrial.com) directly to create sessions and record events. A `sentrial` CLI ships with
+  the SDK for local setup, scriptable session/event inspection, diagnosis, and CI regression gates.
 url: https://raw.githubusercontent.com/api-evangelist/sentrial/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.sentrial.com/og-image.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - y-combinator
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- AI Agents
+- Observability
+- Monitoring
+- LLM
+- Developer Tools
+- Tracing
+apis:
+- aid: sentrial:sentrial-events-api
+  name: Sentrial Events API
+  description: Track events within agent sessions.
+  humanURL: https://www.sentrial.com/docs
+  baseURL: https://api.sentrial.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/sentrial-events-api-openapi.yml
+  - type: Documentation
+    url: https://www.sentrial.com/docs
+  - type: APIReference
+    url: https://www.sentrial.com/docs/api/sessions
+  - type: GettingStarted
+    url: https://www.sentrial.com/docs/quickstart
+  - type: Authentication
+    url: authentication/sentrial-authentication.yml
+- aid: sentrial:sentrial-sessions-api
+  name: Sentrial Sessions API
+  description: Create and manage agent sessions.
+  humanURL: https://www.sentrial.com/docs
+  baseURL: https://api.sentrial.com
+  tags:
+  - Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/sentrial-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://www.sentrial.com/docs
+  - type: APIReference
+    url: https://www.sentrial.com/docs/api/sessions
+  - type: GettingStarted
+    url: https://www.sentrial.com/docs/quickstart
+  - type: Authentication
+    url: authentication/sentrial-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/sentrial-domain-security.yml
+- type: Authentication
+  url: authentication/sentrial-authentication.yml
+- type: Documentation
+  url: https://www.sentrial.com/docs
+- type: APIReference
+  url: https://www.sentrial.com/docs/api/sessions
+- type: GettingStarted
+  url: https://www.sentrial.com/docs/quickstart
+- type: Blog
+  url: https://www.sentrial.com/blog
+- type: SignUp
+  url: https://sentrial.com/signup
+- type: TermsOfService
+  url: https://www.sentrial.com/terms
+- type: PrivacyPolicy
+  url: https://www.sentrial.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/sentrialdev
+- type: Packages
+  url: packages/sentrial-packages.yml
+- type: SDKs
+  url: packages/sentrial-packages.yml
+- type: CLI
+  url: cli/sentrial-cli.yml
+- type: Conventions
+  url: conventions/sentrial-conventions.yml
+- type: ErrorCatalog
+  url: errors/sentrial-error-codes.yml
+- type: DataModel
+  url: data-model/sentrial-data-model.yml
+- type: Conformance
+  url: conformance/sentrial-conformance.yml
+- type: Lifecycle
+  url: lifecycle/sentrial-lifecycle.yml
+- type: Overlay
+  url: overlays/sentrial-openapi-overlay.yaml
+- type: MCPServer
+  url: mcp/sentrial-mcp.yml
+- type: LLMsTxt
+  url: llms/sentrial-llms.txt
+- type: AgentSkill
+  url: skills/sentrial-track-agent-session.md
+- type: AgentSkill
+  url: skills/sentrial-record-tool-call.md
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

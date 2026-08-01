@@ -1,0 +1,33 @@
+# Sentrial
+
+> AI agent observability platform. Track sessions, detect issues, diagnose root causes, and fix them in code.
+
+## Docs
+
+- [Authentication](https://www.sentrial.com/docs/api/auth.md): Authenticate your API requests using API keys. All requests must include a valid API key.
+- [Events API](https://www.sentrial.com/docs/api/events.md): REST API endpoints for tracking events within agent sessions.
+- [Sessions API](https://www.sentrial.com/docs/api/sessions.md): REST API endpoints for creating and managing agent sessions.
+- [CLI](https://www.sentrial.com/docs/cli.md): Install Sentrial, scaffold agent integrations, and inspect sessions from a terminal.
+- [Code Integration](https://www.sentrial.com/docs/concepts/code-integration.md): Connect your GitHub repository and fix agent issues directly in your codebase. Chat with AI, get suggestions, see diffs, and create PRs.
+- [Issues & Diagnosis](https://www.sentrial.com/docs/concepts/diagnosis.md): Sentrial automatically detects issues in your agent sessions and provides AI-powered diagnosis to help you fix them fast.
+- [Ingestion Options](https://www.sentrial.com/docs/concepts/ingestion-options.md): Choose between Sentrial-native SDK tracking and OpenTelemetry trace ingestion.
+- [Sessions & Tracking](https://www.sentrial.com/docs/concepts/sessions.md): Sessions are the foundation of Sentrial. Every agent interaction is a session — a complete record of what happened, when, and why.
+- [Welcome to Sentrial](https://www.sentrial.com/docs/index.md): The AI agent observability platform that doesn't just monitor — it diagnoses and fixes issues automatically.
+- [Installation](https://www.sentrial.com/docs/installation.md): Install the Sentrial SDK in your project. Available for Python and TypeScript.
+- [AutoGen Integration](https://www.sentrial.com/docs/integrations/autogen.md): Track Microsoft AutoGen multi-agent conversations with automatic message tracking and tool executions.
+- [Claude Code (Python)](https://www.sentrial.com/docs/integrations/claude-code-python.md): Wrap the Claude Agent SDK's query() or ClaudeSDKClient to automatically track sessions, tool calls, tokens, costs, and conversation threading.
+- [Claude Code (TypeScript)](https://www.sentrial.com/docs/integrations/claude-code-typescript.md): Wrap the Claude Agent SDK's query() to automatically track sessions, tool calls, tokens, costs, and conversation threading.
+- [CrewAI Integration](https://www.sentrial.com/docs/integrations/crewai.md): Track multi-agent CrewAI systems with automatic task tracking, agent steps, and tool executions.
+- [Custom Agent Integration](https://www.sentrial.com/docs/integrations/custom.md): Track any AI agent with Sentrial, not just LangChain. Manual instrumentation gives you full control over what gets tracked.
+- [LangChain Integration](https://www.sentrial.com/docs/integrations/langchain.md): Automatically track all LLM calls, tool usage, and agent decisions in your LangChain agents with zero code changes.
+- [Mastra Integration](https://www.sentrial.com/docs/integrations/mastra.md): One line of setup to automatically track all Mastra agent calls — sessions, tool calls, tokens, cost, multi-turn conversations, and PII redaction.
+- [OpenTelemetry](https://www.sentrial.com/docs/integrations/opentelemetry.md): Send OpenTelemetry traces to Sentrial when you already have OTel instrumentation or a collector pipeline.
+- [Vercel AI SDK Integration](https://www.sentrial.com/docs/integrations/vercel-ai.md): 3 lines of setup to automatically track all Vercel AI SDK calls — input/output, tokens, cost, tool executions, and errors.
+- [Quick Start](https://www.sentrial.com/docs/quickstart.md): Get Sentrial running in 5 minutes. Track sessions, detect issues automatically, and get AI-powered fixes.
+- [Python SDK](https://www.sentrial.com/docs/sdk/python.md): Complete reference for the Sentrial Python SDK. Track sessions, events, and get automatic LangChain integration.
+- [TypeScript SDK](https://www.sentrial.com/docs/sdk/typescript.md): TypeScript/JavaScript SDK for tracking agent sessions and events from Node.js applications.
+- [Use with AI](https://www.sentrial.com/docs/use-with-ai.md): Let AI tools like Cursor and Claude Code search Sentrial docs to instrument your agents automatically.
+
+## OpenAPI Specs
+
+- [openapi](https://www.sentrial.com/docs/api-reference/openapi.json)

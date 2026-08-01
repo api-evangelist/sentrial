@@ -1,0 +1,16 @@
+{
+  "provider": "sentrial",
+  "sources": [
+    "sentrial-events-api-openapi.yml",
+    "sentrial-sessions-api-openapi.yml"
+  ],
+  "outputs": [
+    "sentrial-events-api-openapi.yml",
+    "sentrial-sessions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

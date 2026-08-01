@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/sentrial-openapi.yml
+skills:
+- file: sentrial-track-agent-session.md
+  name: Track an agent session end-to-end
+  api: openapi/sentrial-openapi.yml
+  operations: [createSession, createEvent, updateSession]
+- file: sentrial-record-tool-call.md
+  name: Record a tool call or decision event
+  api: openapi/sentrial-openapi.yml
+  operations: [createEvent]
