@@ -1,0 +1,725 @@
+{
+  "item": [
+    {
+      "id": "34db635d-e9ac-4391-a12f-6ca8ffc66dfc",
+      "name": "Sessions",
+      "description": {
+        "content": "Create and manage agent sessions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50f37900-f988-43c2-974a-4bce73c79cf0",
+          "name": "Create a session",
+          "request": {
+            "name": "Create a session",
+            "description": {
+              "content": "Create a new agent session. A session is a complete record of a single agent interaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sdk",
+                "sessions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"agentName\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 274\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56e21c1c-bae3-4ade-b866-6ad385f915df",
+              "name": "Session created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Customer Support Request\",\n  \"agentName\": \"support-agent\",\n  \"userId\": \"user_123\",\n  \"metadata\": {\n    \"ticketId\": \"TKT-789\",\n    \"channel\": \"web_chat\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"sess_abc123def456\",\n  \"name\": \"Customer Support Request\",\n  \"agentName\": \"support-agent\",\n  \"userId\": \"user_123\",\n  \"status\": \"active\",\n  \"createdAt\": \"2025-01-12T10:30:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e093e13d-ba28-4657-a5ed-a75d17599504",
+              "name": "Missing required fields or invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Customer Support Request\",\n  \"agentName\": \"support-agent\",\n  \"userId\": \"user_123\",\n  \"metadata\": {\n    \"ticketId\": \"TKT-789\",\n    \"channel\": \"web_chat\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1927bb43-9d7f-4154-befc-4fa21e245f23",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Customer Support Request\",\n  \"agentName\": \"support-agent\",\n  \"userId\": \"user_123\",\n  \"metadata\": {\n    \"ticketId\": \"TKT-789\",\n    \"channel\": \"web_chat\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff03a418-f662-4e08-aa59-56d54e826cb9",
+              "name": "API key does not have permission for this action.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Customer Support Request\",\n  \"agentName\": \"support-agent\",\n  \"userId\": \"user_123\",\n  \"metadata\": {\n    \"ticketId\": \"TKT-789\",\n    \"channel\": \"web_chat\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ceba36b7-7bc5-4dd4-8896-d52b32ad356a",
+              "name": "Server error, please retry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Customer Support Request\",\n  \"agentName\": \"support-agent\",\n  \"userId\": \"user_123\",\n  \"metadata\": {\n    \"ticketId\": \"TKT-789\",\n    \"channel\": \"web_chat\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75a0cf1c-3c1e-4430-b5d9-fc9099169f32",
+          "name": "Update a session",
+          "request": {
+            "name": "Update a session",
+            "description": {
+              "content": "Update a session's status and record final metrics (cost, duration, token usage, custom metrics).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sdk",
+                "sessions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) ID of the session to update."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"failureReason\": \"<string>\",\n  \"estimatedCost\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"promptTokens\": \"<number>\",\n  \"completionTokens\": \"<number>\",\n  \"totalTokens\": \"<number>\",\n  \"customMetrics\": {\n    \"key_0\": 3330,\n    \"key_1\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bfebba24-1ab4-4a4d-9ae9-94a7a808ed3f",
+              "name": "Session updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the session to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"completed\",\n  \"success\": true,\n  \"estimatedCost\": 0.045,\n  \"durationMs\": 3500,\n  \"promptTokens\": 1500,\n  \"completionTokens\": 500,\n  \"totalTokens\": 2000,\n  \"customMetrics\": {\n    \"satisfaction\": 4.5,\n    \"resolution_time\": 120\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"sess_abc123def456\",\n  \"name\": \"Customer Support Request\",\n  \"status\": \"completed\",\n  \"success\": true,\n  \"estimatedCost\": 0.045,\n  \"durationMs\": 3500,\n  \"completedAt\": \"2025-01-12T10:30:03Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bef927e0-9e75-49e0-99cb-fd0c25650987",
+              "name": "Missing required fields or invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the session to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"completed\",\n  \"success\": true,\n  \"estimatedCost\": 0.045,\n  \"durationMs\": 3500,\n  \"promptTokens\": 1500,\n  \"completionTokens\": 500,\n  \"totalTokens\": 2000,\n  \"customMetrics\": {\n    \"satisfaction\": 4.5,\n    \"resolution_time\": 120\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebd4212a-3a9d-4ec7-b275-a2834a9e20d5",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the session to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"completed\",\n  \"success\": true,\n  \"estimatedCost\": 0.045,\n  \"durationMs\": 3500,\n  \"promptTokens\": 1500,\n  \"completionTokens\": 500,\n  \"totalTokens\": 2000,\n  \"customMetrics\": {\n    \"satisfaction\": 4.5,\n    \"resolution_time\": 120\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8b53930-f184-4680-b7d6-54f14e114f1b",
+              "name": "Session ID not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the session to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"completed\",\n  \"success\": true,\n  \"estimatedCost\": 0.045,\n  \"durationMs\": 3500,\n  \"promptTokens\": 1500,\n  \"completionTokens\": 500,\n  \"totalTokens\": 2000,\n  \"customMetrics\": {\n    \"satisfaction\": 4.5,\n    \"resolution_time\": 120\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a7dbf64-9ce6-4f98-b9b3-178736f7df3e",
+              "name": "Server error, please retry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "sessions",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) ID of the session to update."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"completed\",\n  \"success\": true,\n  \"estimatedCost\": 0.045,\n  \"durationMs\": 3500,\n  \"promptTokens\": 1500,\n  \"completionTokens\": 500,\n  \"totalTokens\": 2000,\n  \"customMetrics\": {\n    \"satisfaction\": 4.5,\n    \"resolution_time\": 120\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sentrial.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "241bd84b-8ee1-49ce-971a-e9bc9fc310ea",
+    "name": "Sentrial SDK Events Sessions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sentrial is an AI agent observability platform. The SDK/ingestion REST API lets you create and manage agent sessions and record the events (tool calls, LLM decisions, state changes, errors) that happen inside them, so Sentrial can detect issues, diagnose root causes, and help you fix them in code. This specification was generated by API Evangelist from Sentrial's published documentation (https://www.sentrial.com/docs/api/*) — every field, request, response, and error is transcribed from the docs, not inferred.\n\nContact Support:\n Name: Sentrial",
+      "type": "text/plain"
+    }
+  }
+}

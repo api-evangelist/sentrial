@@ -1,0 +1,356 @@
+{
+  "item": [
+    {
+      "id": "9f54b60f-d123-4c60-9503-1dce42240b8e",
+      "name": "Events",
+      "description": {
+        "content": "Track events within agent sessions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e6f770e-b900-44d0-ac0f-d4de20ec2709",
+          "name": "Create an event",
+          "request": {
+            "name": "Create an event",
+            "description": {
+              "content": "Record an event (tool call, LLM decision, state change, or error) within an agent session.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "sdk",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sessionId\": \"<string>\",\n  \"eventType\": \"<string>\",\n  \"toolName\": \"<string>\",\n  \"toolInput\": {\n    \"key_0\": 9975,\n    \"key_1\": true\n  },\n  \"toolOutput\": {\n    \"key_0\": true,\n    \"key_1\": 3932.7528518901368\n  },\n  \"reasoning\": \"<string>\",\n  \"alternativesConsidered\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"confidence\": \"<number>\",\n  \"estimatedCost\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b71107c0-b586-4cee-9181-1e8e7fe38ea7",
+              "name": "Event created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionId\": \"sess_abc123def456\",\n  \"eventType\": \"tool_call\",\n  \"toolName\": \"search_kb\",\n  \"toolInput\": {\n    \"query\": \"password reset\"\n  },\n  \"toolOutput\": {\n    \"results\": [\n      \"KB-001\",\n      \"KB-002\"\n    ]\n  },\n  \"reasoning\": \"User needs password help\",\n  \"estimatedCost\": 0.001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"evt_xyz789\",\n  \"sessionId\": \"sess_abc123def456\",\n  \"eventType\": \"tool_call\",\n  \"toolName\": \"search_kb\",\n  \"createdAt\": \"2025-01-12T10:30:01Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b204267-b7f9-4e17-8d31-c0a1ae372ef3",
+              "name": "Missing required fields or invalid data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionId\": \"sess_abc123def456\",\n  \"eventType\": \"tool_call\",\n  \"toolName\": \"search_kb\",\n  \"toolInput\": {\n    \"query\": \"password reset\"\n  },\n  \"toolOutput\": {\n    \"results\": [\n      \"KB-001\",\n      \"KB-002\"\n    ]\n  },\n  \"reasoning\": \"User needs password help\",\n  \"estimatedCost\": 0.001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a0b0969-6c07-47ec-ba83-51ec259447e0",
+              "name": "Invalid or missing API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionId\": \"sess_abc123def456\",\n  \"eventType\": \"tool_call\",\n  \"toolName\": \"search_kb\",\n  \"toolInput\": {\n    \"query\": \"password reset\"\n  },\n  \"toolOutput\": {\n    \"results\": [\n      \"KB-001\",\n      \"KB-002\"\n    ]\n  },\n  \"reasoning\": \"User needs password help\",\n  \"estimatedCost\": 0.001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd9f6a5b-ff15-41a3-b45e-6a6f02eddd6a",
+              "name": "Session ID not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionId\": \"sess_abc123def456\",\n  \"eventType\": \"tool_call\",\n  \"toolName\": \"search_kb\",\n  \"toolInput\": {\n    \"query\": \"password reset\"\n  },\n  \"toolOutput\": {\n    \"results\": [\n      \"KB-001\",\n      \"KB-002\"\n    ]\n  },\n  \"reasoning\": \"User needs password help\",\n  \"estimatedCost\": 0.001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6909ab91-dba2-4cbb-9d87-1a4973d6103b",
+              "name": "Server error, please retry.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sdk",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sessionId\": \"sess_abc123def456\",\n  \"eventType\": \"tool_call\",\n  \"toolName\": \"search_kb\",\n  \"toolInput\": {\n    \"query\": \"password reset\"\n  },\n  \"toolOutput\": {\n    \"results\": [\n      \"KB-001\",\n      \"KB-002\"\n    ]\n  },\n  \"reasoning\": \"User needs password help\",\n  \"estimatedCost\": 0.001\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Unauthorized\",\n  \"message\": \"Invalid or missing API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sentrial.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0e9f9c80-f60d-4fef-bec3-aebb29d20996",
+    "name": "Sentrial SDK Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Sentrial is an AI agent observability platform. The SDK/ingestion REST API lets you create and manage agent sessions and record the events (tool calls, LLM decisions, state changes, errors) that happen inside them, so Sentrial can detect issues, diagnose root causes, and help you fix them in code. This specification was generated by API Evangelist from Sentrial's published documentation (https://www.sentrial.com/docs/api/*) — every field, request, response, and error is transcribed from the docs, not inferred.\n\nContact Support:\n Name: Sentrial",
+      "type": "text/plain"
+    }
+  }
+}

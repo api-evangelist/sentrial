@@ -2,10 +2,9 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/sentrial-openapi.yml
-note: >-
-  No official hosted/remote Sentrial MCP server was found in the docs, npm
-  (@modelcontextprotocol), or public MCP registries as of this capture. The tool
-  list below is a candidate derived one-to-one from the documented REST operations.
+note: No official hosted/remote Sentrial MCP server was found in the docs, npm (@modelcontextprotocol),
+  or public MCP registries as of this capture. The tool list below is a candidate derived one-to-one from
+  the documented REST operations.
 server:
   name: sentrial
   transport: http
@@ -19,3 +18,9 @@ tools:
 - name: create_event
   description: Record an event within an agent session.
   source_operation: openapi/sentrial-openapi.yml#createEvent
+deployment:
+  mode: none
+  verified: derived
+  tools: 3
+  checked: '2026-08-12'
+  source: catalog MCP census
