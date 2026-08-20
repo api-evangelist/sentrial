@@ -46,6 +46,8 @@ apis:
   humanURL: https://www.sentrial.com/docs
   baseURL: https://api.sentrial.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
