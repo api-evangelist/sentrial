@@ -9,6 +9,18 @@ description: >-
   (https://api.sentrial.com) directly to create sessions and record events. A `sentrial` CLI ships with
   the SDK for local setup, scriptable session/event inspection, diagnosis, and CI regression gates.
 url: https://raw.githubusercontent.com/api-evangelist/sentrial/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
