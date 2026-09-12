@@ -97,6 +97,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Website
+  url: https://www.sentrial.com/
 - type: DomainSecurity
   url: security/sentrial-domain-security.yml
 - type: Authentication
