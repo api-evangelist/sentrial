@@ -64,32 +64,19 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Missing required fields or invalid data.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Session ID not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: Server error, please retry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Short error code/title.
+        message:
+          type: string
+          description: Human-readable explanation.
+      example:
+        error: Unauthorized
+        message: Invalid or missing API key
     Event:
       type: object
       properties:
@@ -152,18 +139,31 @@ components:
         estimatedCost:
           type: number
           description: Cost for this event in USD.
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Short error code/title.
-        message:
-          type: string
-          description: Human-readable explanation.
-      example:
-        error: Unauthorized
-        message: Invalid or missing API key
+  responses:
+    NotFound:
+      description: Session ID not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Server error, please retry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Missing required fields or invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http

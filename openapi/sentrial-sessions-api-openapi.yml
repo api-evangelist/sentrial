@@ -114,38 +114,19 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
-  responses:
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Missing required fields or invalid data.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Session ID not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: API key does not have permission for this action.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: Server error, please retry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Short error code/title.
+        message:
+          type: string
+          description: Human-readable explanation.
+      example:
+        error: Unauthorized
+        message: Invalid or missing API key
     Session:
       type: object
       properties:
@@ -176,6 +157,26 @@ components:
         completedAt:
           type: string
           format: date-time
+    CreateSessionRequest:
+      type: object
+      required:
+      - name
+      - agentName
+      - userId
+      properties:
+        name:
+          type: string
+          description: Descriptive name for the session.
+        agentName:
+          type: string
+          description: Agent identifier for grouping.
+        userId:
+          type: string
+          description: External user identifier.
+        metadata:
+          type: object
+          additionalProperties: true
+          description: Custom key-value data.
     UpdateSessionRequest:
       type: object
       properties:
@@ -210,38 +211,37 @@ components:
           type: object
           additionalProperties: true
           description: Custom numeric metrics.
-    CreateSessionRequest:
-      type: object
-      required:
-      - name
-      - agentName
-      - userId
-      properties:
-        name:
-          type: string
-          description: Descriptive name for the session.
-        agentName:
-          type: string
-          description: Agent identifier for grouping.
-        userId:
-          type: string
-          description: External user identifier.
-        metadata:
-          type: object
-          additionalProperties: true
-          description: Custom key-value data.
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Short error code/title.
-        message:
-          type: string
-          description: Human-readable explanation.
-      example:
-        error: Unauthorized
-        message: Invalid or missing API key
+  responses:
+    Forbidden:
+      description: API key does not have permission for this action.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Session ID not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Server error, please retry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Missing required fields or invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     bearerAuth:
       type: http
