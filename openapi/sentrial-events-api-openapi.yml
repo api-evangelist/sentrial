@@ -64,6 +64,31 @@ paths:
         '500':
           $ref: '#/components/responses/ServerError'
 components:
+  responses:
+    NotFound:
+      description: Session ID not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Invalid or missing API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    ServerError:
+      description: Server error, please retry.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Missing required fields or invalid data.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -77,26 +102,6 @@ components:
       example:
         error: Unauthorized
         message: Invalid or missing API key
-    Event:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Event ID (prefix evt_).
-        sessionId:
-          type: string
-        eventType:
-          type: string
-          enum:
-          - tool_call
-          - llm_decision
-          - state_change
-          - error
-        toolName:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
     CreateEventRequest:
       type: object
       required:
@@ -139,31 +144,26 @@ components:
         estimatedCost:
           type: number
           description: Cost for this event in USD.
-  responses:
-    NotFound:
-      description: Session ID not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ServerError:
-      description: Server error, please retry.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Invalid or missing API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Missing required fields or invalid data.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    Event:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Event ID (prefix evt_).
+        sessionId:
+          type: string
+        eventType:
+          type: string
+          enum:
+          - tool_call
+          - llm_decision
+          - state_change
+          - error
+        toolName:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http
