@@ -71,14 +71,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Invalid or missing API key.
+    ServerError:
+      description: Server error, please retry.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    ServerError:
-      description: Server error, please retry.
+    Unauthorized:
+      description: Invalid or missing API key.
       content:
         application/json:
           schema:
@@ -90,18 +90,6 @@ components:
           schema:
             $ref: '#/components/schemas/Error'
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: string
-          description: Short error code/title.
-        message:
-          type: string
-          description: Human-readable explanation.
-      example:
-        error: Unauthorized
-        message: Invalid or missing API key
     CreateEventRequest:
       type: object
       required:
@@ -164,6 +152,18 @@ components:
         createdAt:
           type: string
           format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Short error code/title.
+        message:
+          type: string
+          description: Human-readable explanation.
+      example:
+        error: Unauthorized
+        message: Invalid or missing API key
   securitySchemes:
     bearerAuth:
       type: http
