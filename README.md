@@ -64,6 +64,112 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Sentrial is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Sentrial is an observability platform for AI agents, backed by Y Combinator. It tracks every agent session, tool call, and LLM interaction, then automatically detects issues, diagnoses root causes, and helps teams fix them in code. Developers instrument agents with the Sentrial Python or TypeScript SDK (one-line integrations for LangChain, CrewAI, AutoGen, Mastra, the Vercel AI SDK, and the Claude Agent SDK), by sending OpenTelemetry traces, or by calling the REST ingestion API (https://api.sentrial.com) directly to create sessions and record events. A `sentrial` CLI ships with the SDK for local setup, scriptable session/event inspection, diagnosis, and CI regression gates.
 
-Backed by: y-combinator
+**Areas:** Company · AI Agents · Observability · Monitoring · LLM · Developer Tools · Tracing
+
+## Sentrial on APIs.io
+
+Everything profiled for Sentrial is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sentrial/](https://apis.io/providers/sentrial/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Sentrial Events API](https://apis.io/apis/sentrial/sentrial-events-api/) — Track events within agent sessions.
+- [Sentrial Sessions API](https://apis.io/apis/sentrial/sentrial-sessions-api/) — Create and manage agent sessions.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [sentrial](https://apis.io/servers/sentrial/sentrial/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Sentrial SDK Events API](https://apis.io/collections/sentrial/open-sentrial-events-api/)
+- [Sentrial SDK Events Sessions API](https://apis.io/collections/sentrial/open-sentrial-sessions-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Sentrial Openapi Overlay](https://apis.io/overlays/sentrial/sentrial-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Sentrial Authentication](https://apis.io/security/sentrial/sentrial-authentication/)
+- [Sentrial Domain Security](https://apis.io/security/sentrial/sentrial-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.sentrial.com/)
+- [Documentation](https://www.sentrial.com/docs)
+- [Getting started](https://www.sentrial.com/docs/quickstart)
+- [API reference](https://www.sentrial.com/docs/api/sessions)
+- [Sign up](https://sentrial.com/signup)
+- [Blog](https://www.sentrial.com/blog)
+- [Terms of service](https://www.sentrial.com/terms)
+- [Privacy policy](https://www.sentrial.com/privacy)
+- [GitHub](https://github.com/sentrialdev)
+
+## API Evangelist rating
+
+**Kin Score 22.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 14.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 0.0 |
+
+**Agent readiness 24.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sentrial/](https://apis.io/providers/sentrial/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Sentrial: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sentrial/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
